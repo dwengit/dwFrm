@@ -1,39 +1,44 @@
-# Dw.Framework
+# Dw.Frm V1.0
 
+#### 在线体验
+后台管理
+https://admin.yousu.xyz/admin/login  
+前台博客
+https://blog.yousu.xyz/home
+```
+由于资金有限，（缓存服务、对象存储服务、持久化存储服务）的服务器离web服务器很远，速度会有点慢
+```
 #### 介绍
-{**以下是码云平台说明，您可以替换此简介**
-码云是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用码云实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+Dw.Frm一个轻量简单的项目，层次结构简单清晰，很适合新手上手也很容进行扩展和二次开发，本项目前后端分离模式，开箱即用，只需要关注业务功能开发。  
+内置权限管理和博客管理模块，权限认证使用Jwt，实现的通用权限管理RBAC模式。  
 
-#### 软件架构
-软件架构说明
+#### 相关技术
+##### 前端技术
+使用Vue-cil进行框架的搭建，使用到vue、vuex、axios、vue-router、mavon-editor、markdown-it、element-ui、must-ui、jquery、d3js、echarts
+
+##### 后端技术
+基于.NetCore3.1开发，使用到EntityFrameworkCore、SqlSugar、log4net、Minio、AutoMapper、Dapper、JinianNet.JNTemplate
+
+##### 数据存储
+对象存储(minio)，持久化存储（mysql），缓存（redis）
+
+##### 部署环境
+centos7.6+docker
+
+#### 项目结构
+![image](https://github.com/dwengit/dwFrm/blob/main/READMEIMG/frmdic.png)
+
+#### 演示图
+![image](https://github.com/dwengit/dwFrm/blob/main/READMEIMG/login.png)
+![image](https://github.com/dwengit/dwFrm/blob/main/READMEIMG/home.png)
+![image](https://github.com/dwengit/dwFrm/blob/main/READMEIMG/sys.png)
+![image](https://github.com/dwengit/dwFrm/blob/main/READMEIMG/blog.png)
+![image](https://github.com/dwengit/dwFrm/blob/main/READMEIMG/tools.png)
+![image](https://github.com/dwengit/dwFrm/blob/main/READMEIMG/mt.png)
+![image](https://github.com/dwengit/dwFrm/blob/main/READMEIMG/bloghome.png)
+![image](https://github.com/dwengit/dwFrm/blob/main/READMEIMG/blogct.png)
+![image](https://github.com/dwengit/dwFrm/blob/main/READMEIMG/blogat.png)
 
 
-#### 安装教程
+###### 参考与借鉴(panjiachen.github.io,nevergiveupt.top/index,gitee.com/izory/ZrAdminNetCore)
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 码云特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
