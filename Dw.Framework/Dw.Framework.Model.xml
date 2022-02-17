@@ -1,0 +1,2517 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dw.Framework.Model</name>
+    </assembly>
+    <members>
+        <member name="T:Dw.Framework.Model.Blog.BlogArticle">
+            <summary>
+            博文管理
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogArticle.UserId">
+            <summary>
+            发表用户ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogArticle.ArticleTitle">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogArticle.Introduction">
+            <summary>
+            摘要/简介
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogArticle.ArticleContent">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogArticle.ArticleStatus">
+            <summary>
+            博文状态
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogArticle.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogArticle.Top">
+            <summary>
+            置顶（0：默认不置定，1：置顶）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogArticle.ViewNum">
+            <summary>
+            浏览量
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogArticle.LikeNum">
+            <summary>
+            点赞数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogArticle.CommentNum">
+            <summary>
+            评论数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogArticle.Auth">
+            <summary>
+            权限（0：默认公开，1：Vip）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogArticle.IsDisableComment">
+            <summary>
+            是否禁用评论
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Blog.BlogCategory">
+            <summary>
+            博客分类
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogCategory.CategoryTitle">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogCategory.ParentId">
+            <summary>
+            分类父Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogCategory.SortNO">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Blog.BlogCategory.Children">
+            <summary>
+            子集合
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Blog.BlogComment">
+            <summary>
+            博文评论
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogComment.CommentRootId">
+            <summary>
+            评论根Id/一级评论，（如果CommentType==1，默认为空）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogComment.ParentCommentId">
+            <summary>
+            回复人父级Id，（如果CommentType==1，默认为空）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogComment.CommentIp">
+            <summary>
+            评论人/回复人，IP
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogComment.CommentLocation">
+            <summary>
+            评论人IP地点
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogComment.CommentType">
+            <summary>
+            类型，0：评论，1：回复
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogComment.CommenterType">
+            <summary>
+            评论人类型，0：普通用户，1：作者
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogComment.ArticleId">
+            <summary>
+            博文Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogComment.CommentContent">
+            <summary>
+            评论/回复，内容
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogComment.CommentLikeNum">
+            <summary>
+            评论/回复，点赞数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogComment.CommentNickName">
+            <summary>
+            评论人/回复人，昵称
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Blog.BlogLink">
+            <summary>
+            友情链接
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogLink.LinkTitle">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogLink.LinkUrl">
+            <summary>
+            链接地址
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogLink.SortNO">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Blog.BlogTag">
+            <summary>
+            博文标签
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogTag.TagTitle">
+            <summary>
+            标签名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogTag.IsQuickNav">
+            <summary>
+            快速导航
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogTag.SortNO">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Blog.BlogWebSiteManage">
+            <summary>
+            博客站点管理
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogWebSiteManage.WebSitName">
+            <summary>
+            站点名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogWebSiteManage.BackImage">
+            <summary>
+            站点背景图
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Blog.BlogWebSiteMsg">
+            <summary>
+            站点留言
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogWebSiteMsg.MsgNickName">
+            <summary>
+            留言的用户昵称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogWebSiteMsg.MsgContent">
+            <summary>
+            留言内容
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Blog.BlogWebSiteMsg.ParentMsgId">
+            <summary>
+            留言父Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserBasicInfoDto.UserName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserBasicInfoDto.UserEmail">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserBasicInfoDto.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserBasicInfoDto.Avatar">
+            <summary>
+            用户头像
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserBasicInfoDto.Roles">
+            <summary>
+            用户拥有的角色
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserBasicInfoDto.Permissions">
+            <summary>
+            当前用户所有权限
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Dto.Account.UserRoleInfoDto">
+            <summary>
+            用户角色信息
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserRoleInfoDto.RoleCode">
+            <summary>
+            角色权限Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserRoleInfoDto.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserRoleInfoDto.RoleName">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Dto.Account.UserPermissionResourceDto">
+            <summary>
+            用户所拥有的权限资源
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserPermissionResourceDto.PermissionCode">
+            <summary>
+            资源code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserPermissionResourceDto.PermissionName">
+            <summary>
+            资源名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserPermissionResourceDto.PermissionIcon">
+            <summary>
+            资源图标
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserPermissionResourceDto.PathName">
+            <summary>
+            资源路径名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.PermissionDto.ResourceType">
+            <summary>
+            资源类型
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.PermissionDto.ParentResourceID">
+            <summary>
+            资源的父id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserRouteDto.Path">
+            <summary>
+            路由请求路径
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserRouteDto.Name">
+            <summary>
+            路由名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserRouteDto.Hidden">
+            <summary>
+            当设置 true 的时候该路由不会在侧边栏出现 如401，login等页面，或者如一些编辑页面/edit/1
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserRouteDto.Redirect">
+            <summary>
+            调整地址
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserRouteDto.Component">
+            <summary>
+            组件路径
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserRouteDto.AlwaysShow">
+            <summary>
+            是否一直显示根路由
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserRouteDto.Meta">
+            <summary>
+            扩展描述信息
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.UserRouteDto.Children">
+            <summary>
+            菜单子模块/子目录
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Dto.Account.MetaDto">
+            <summary>
+            路由扩展描述信息
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.MetaDto.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.MetaDto.NoCache">
+            <summary>
+            是否缓存页面
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Account.MetaDto.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.UserName">
+            <summary>
+            发表用户名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.ArticleTitle">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.Introduction">
+            <summary>
+            摘要/简介
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.ArticleContent">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.ArticleStatus">
+            <summary>
+            博文状态
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.Top">
+            <summary>
+            置顶（0：默认布置定，1：置顶）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.ViewNum">
+            <summary>
+            浏览量
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.LikeNum">
+            <summary>
+            点赞数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.CommentNum">
+            <summary>
+            评论数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.Auth">
+            <summary>
+            权限（0：默认公开，1：Vip）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.IsDisableComment">
+            <summary>
+            是否禁用评论
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.CoverImage">
+            <summary>
+            封面图片
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticleDto.TagIds">
+            <summary>
+            标签Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.Id">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.UserName">
+            <summary>
+            发表用户名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.ArticleTitle">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.Introduction">
+            <summary>
+            摘要/简介
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.ArticleStatus">
+            <summary>
+            博文状态
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.CoverImage">
+            <summary>
+            封面图片
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.CategoryTitle">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.TagTitles">
+            <summary>
+            标签名称，逗号分割
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.TagIds">
+            <summary>
+            标签Id，逗号分割
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.Top">
+            <summary>
+            置顶（0：默认布置定，1：置顶）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.ViewNum">
+            <summary>
+            浏览量
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.LikeNum">
+            <summary>
+            点赞数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.CommentNum">
+            <summary>
+            评论数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.Auth">
+            <summary>
+            权限（0：默认公开，1：Vip）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.IsDisableComment">
+            <summary>
+            是否禁用评论
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.ArticlePage.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CategoryPageTree.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CategoryPageTree.CategoryTitle">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CategoryPageTree.ParentId">
+            <summary>
+            分类父Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CategoryPageTree.SortNO">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CategoryPageTree.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CategoryPageTree.Children">
+            <summary>
+            子集合
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CommentList.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CommentList.CommentRootId">
+            <summary>
+            评论根Id/一级评论，（如果CommentType==1，默认为空）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CommentList.ParentCommentId">
+            <summary>
+            回复人父级Id，（如果CommentType==0，默认为空）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CommentList.CommentLocation">
+            <summary>
+            评论人IP地点
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CommentList.CommentType">
+            <summary>
+            类型，0：评论，1：回复
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CommentList.CommenterType">
+            <summary>
+            评论人类型，0：普通用户，1：作者
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CommentList.ArticleId">
+            <summary>
+            博文Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CommentList.CommentContent">
+            <summary>
+            评论/回复，内容
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CommentList.CommentLikeNum">
+            <summary>
+            评论/回复，点赞数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CommentList.CommentNickName">
+            <summary>
+            评论人/回复人，昵称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CommentList.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CommentList.IsDelete">
+            <summary>
+            是否已删除
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.CommentList.IsLike">
+            <summary>
+            是否已点赞
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.Id">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.UserName">
+            <summary>
+            发表用户名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.ArticleTitle">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.Introduction">
+            <summary>
+            简介
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.ArticleContent">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.CoverImage">
+            <summary>
+            封面图片
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.CategoryTitle">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.Tags">
+            <summary>
+            标签名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.ViewNum">
+            <summary>
+            浏览量
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.LikeNum">
+            <summary>
+            点赞数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.CommentNum">
+            <summary>
+            评论数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.Auth">
+            <summary>
+            权限（0：默认公开，1：Vip）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.IsDisableComment">
+            <summary>
+            是否禁用评论
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.Prev">
+            <summary>
+            上一章
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleDetail.Next">
+            <summary>
+            下一章
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticlePrevNext.Id">
+            <summary>
+            文章Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticlePrevNext.Title">
+            <summary>
+            文章标题
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticlePrevNext.RowIndex">
+            <summary>
+            行号索引
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.Id">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.UserName">
+            <summary>
+            发表用户名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.ArticleTitle">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.Introduction">
+            <summary>
+            简介
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.CoverImage">
+            <summary>
+            封面图片
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.CategoryTitle">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.Tags">
+            <summary>
+            标签名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.Top">
+            <summary>
+            置顶（0：默认布置定，1：置顶）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.ViewNum">
+            <summary>
+            浏览量
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.LikeNum">
+            <summary>
+            点赞数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.CommentNum">
+            <summary>
+            评论数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.Auth">
+            <summary>
+            权限（0：默认公开，1：Vip）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.IsDisableComment">
+            <summary>
+            是否禁用评论
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.ArticleShowPage.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Dto.Blog.Front.BlogArchives">
+            <summary>
+            博文时间轴
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.BlogArchives.YearTime">
+            <summary>
+            时间轴年度
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.BlogArchives.ArchiveStages">
+            <summary>
+            博文时间轴阶段信息
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Dto.Blog.Front.BlogArchiveStage">
+            <summary>
+            博文时间轴阶段信息
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.BlogArchiveStage.ArticleId">
+            <summary>
+            文章Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.BlogArchiveStage.TimeLine">
+            <summary>
+            文章时间轴时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.Front.BlogArchiveStage.ArticleTitle">
+            <summary>
+            文章标题
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.LinkPage.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.LinkPage.LinkTitle">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.LinkPage.LinkUrl">
+            <summary>
+            链接地址
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.LinkPage.SortNO">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.LinkPage.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.LinkPage.LinkImage">
+            <summary>
+            背景图
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveArticleInput.Id">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveArticleInput.ArticleTitle">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveArticleInput.Introduction">
+            <summary>
+            摘要/简介
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveArticleInput.ArticleContent">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveArticleInput.ArticleStatus">
+            <summary>
+            博文状态
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveArticleInput.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveArticleInput.TagIds">
+            <summary>
+            标签Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveArticleInput.Top">
+            <summary>
+            置顶（0：默认布置定，1：置顶）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveArticleInput.ViewNum">
+            <summary>
+            浏览量
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveArticleInput.LikeNum">
+            <summary>
+            点赞数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveArticleInput.CommentNum">
+            <summary>
+            评论数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveArticleInput.Auth">
+            <summary>
+            权限（0：默认公开，1：Vip）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveArticleInput.IsDisableComment">
+            <summary>
+            是否禁用评论
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveCategoryInput.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveCategoryInput.CategoryTitle">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveCategoryInput.ParentId">
+            <summary>
+            分类父Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveCategoryInput.SortNO">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveLinkInput.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveLinkInput.LinkTitle">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveLinkInput.LinkUrl">
+            <summary>
+            链接地址
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveLinkInput.SortNO">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveTagInput.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveTagInput.TagTitle">
+            <summary>
+            标签名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveTagInput.IsQuickNav">
+            <summary>
+            快速导航
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveTagInput.SortNO">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveWebSiteManageInput.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveWebSiteManageInput.WebSitName">
+            <summary>
+            站点名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SaveWebSiteManageInput.BackImage">
+            <summary>
+            站点背景图
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SubCommentInput.CommentRootId">
+            <summary>
+            评论根Id/一级评论，（如果CommentType==1，默认为空）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SubCommentInput.ParentCommentId">
+            <summary>
+            回复人父级Id，（如果CommentType==1，默认为空）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SubCommentInput.CommentType">
+            <summary>
+            类型，0：评论，1：回复
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SubCommentInput.ArticleId">
+            <summary>
+            博文Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SubCommentInput.CommentContent">
+            <summary>
+            评论/回复，内容
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.SubCommentInput.CommentNickName">
+            <summary>
+            评论人/回复人，昵称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.TagPage.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.TagPage.TagTitle">
+            <summary>
+            标签名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.TagPage.IsQuickNav">
+            <summary>
+            快速导航
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.TagPage.SortNO">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.TagPage.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.WebSiteManageDto.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.WebSiteManageDto.WebSitName">
+            <summary>
+            站点名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Blog.WebSiteManageDto.BackImage">
+            <summary>
+            站点背景图
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Shared.DefaultTreeOption.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Shared.DefaultTreeOption.ParentId">
+            <summary>
+            父ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Shared.DefaultTreeOption.Label">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.Shared.DefaultTreeOption.Children">
+            <summary>
+            子节点
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.AssignMenuFunctionalInput.EnumOwnerIdentityType">
+            <summary>
+            用户/角色
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.AssignMenuFunctionalInput.OwnerId">
+            <summary>
+            拥有者id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.AssignMenuFunctionalInput.MenuFunctionalIds">
+            <summary>
+            选中的模块/功能ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptDto.Id">
+            <summary>
+            部门ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptDto.ParentId">
+            <summary>
+            父部门ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptDto.CurrentLevelCode">
+            <summary>
+            当前代数Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptDto.AncestorsCode">
+            <summary>
+            祖级列表Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptDto.AncestorsFullName">
+            <summary>
+            祖级列表全路径名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptDto.DeptName">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptDto.SortNO">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptDto.Leader">
+            <summary>
+            负责人，多个逗号分割
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptDto.Phone">
+            <summary>
+            联系电话，多个逗号分割
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptDto.Email">
+            <summary>
+            邮箱，多个逗号分割
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptDto.Status">
+            <summary>
+            部门状态:0正常,1停用
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptPageTree.Id">
+            <summary>
+            部门ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptPageTree.ParentId">
+            <summary>
+            父部门ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptPageTree.CurrentLevelCode">
+            <summary>
+            当前代数Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptPageTree.AncestorsCode">
+            <summary>
+            祖级列表Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptPageTree.AncestorsFullName">
+            <summary>
+            祖级列表全路径名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptPageTree.DeptName">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptPageTree.SortNO">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptPageTree.Leader">
+            <summary>
+            负责人，多个逗号分割
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptPageTree.Phone">
+            <summary>
+            联系电话，多个逗号分割
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptPageTree.Status">
+            <summary>
+            部门状态:0正常,1停用
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptPageTree.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptPageTree.Level">
+            <summary>
+            层级
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptPageTree.Children">
+            <summary>
+            子菜单
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptTreeOptions.Id">
+            <summary>
+            部门ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptTreeOptions.ParentId">
+            <summary>
+            父部门ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptTreeOptions.Label">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.DeptTreeOptions.Children">
+            <summary>
+            子节点
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.FileUploadDto.Name">
+            <summary>
+            文件名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.FileUploadDto.Id">
+            <summary>
+            SysFileBusines表Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.FileUploadDto.BusinessId">
+            <summary>
+            业务Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.FileUploadDto.Url">
+            <summary>
+            完整路径
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.FileOnlyUploadDto.Name">
+            <summary>
+            文件名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.FileOnlyUploadDto.objectName">
+            <summary>
+            存储对象名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.FileOnlyUploadDto.Url">
+            <summary>
+            完整路径
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.FileUploadInput.UpFile">
+            <summary>
+            文件流
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.FileUploadInput.BusinessCode">
+            <summary>
+            业务编码
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.FileUploadInput.BusinessId">
+            <summary>
+            业务Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.FileOnlyUploadInput.UpFile">
+            <summary>
+            文件流
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.Id">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.ResourceCode">
+            <summary>
+            菜单功能Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.ResourceName">
+            <summary>
+            菜单功能名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.ResourceIcon">
+            <summary>
+            菜单功能图标
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.Path">
+            <summary>
+            菜单视图路径
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.PathName">
+            <summary>
+            路由名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.NoCache">
+            <summary>
+            是否缓存页面
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.ResourceType">
+            <summary>
+            资源类型
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.ParentResourceID">
+            <summary>
+            菜单功能的父id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.SortNO">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.Description">
+             <summary>
+            描述
+             </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.IsShow">
+            <summary>
+            显示/隐藏
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.IsExternalLink">
+            <summary>
+            是否是外部链接
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalDto.State">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Dto.System.MenuFunctionalPageTree">
+            <summary>
+            菜单功能权限模块-列表
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalPageTree.Children">
+            <summary>
+            菜单功能子集合
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalTreeOptions.Id">
+            <summary>
+            部门ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalTreeOptions.ParentResourceID">
+            <summary>
+            父ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalTreeOptions.Label">
+            <summary>
+            模块/功能名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalTreeOptions.ResourceType">
+            <summary>
+            资源类型
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.MenuFunctionalTreeOptions.Children">
+            <summary>
+            子节点
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RoleDto.Id">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RoleDto.RoleName">
+            <summary>
+            角色名
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RoleDto.RoleCode">
+            <summary>
+            角色权限Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RoleDto.Status">
+            <summary>
+            帐号状态（0正常 1停用）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RoleDto.Description">
+             <summary>
+            描述
+             </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RoleDto.OrderSort">
+             <summary>
+            排序
+             </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RoleOption.Id">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RoleOption.RoleName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RolePage.Id">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RolePage.RoleName">
+            <summary>
+            角色名
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RolePage.RoleCode">
+            <summary>
+            角色权限Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RolePage.Status">
+            <summary>
+            帐号状态（0正常 1停用）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RolePage.Description">
+             <summary>
+            描述
+             </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RolePage.OrderSort">
+             <summary>
+            排序
+             </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.RolePage.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveDeptInput.Id">
+            <summary>
+            部门ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveDeptInput.ParentId">
+            <summary>
+            父部门ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveDeptInput.DeptName">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveDeptInput.SortNO">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveDeptInput.Leader">
+            <summary>
+            负责人，多个逗号分割
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveDeptInput.Phone">
+            <summary>
+            联系电话，多个逗号分割
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveDeptInput.Email">
+            <summary>
+            邮箱，多个逗号分割
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveDeptInput.Status">
+            <summary>
+            部门状态:0正常,1停用
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.Id">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.ResourceCode">
+            <summary>
+            菜单功能Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.ResourceName">
+            <summary>
+            菜单功能名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.ResourceIcon">
+            <summary>
+            菜单功能图标
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.Path">
+            <summary>
+            菜单视图路径
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.PathName">
+            <summary>
+            路由名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.NoCache">
+            <summary>
+            是否缓存页面
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.ResourceType">
+            <summary>
+            资源类型
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.ParentResourceID">
+            <summary>
+            菜单功能的父id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.SortNO">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.Description">
+             <summary>
+            描述
+             </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.IsShow">
+            <summary>
+            显示/隐藏
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.IsExternalLink">
+            <summary>
+            是否是外部链接
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput.State">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveRoleInput.Id">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveRoleInput.RoleName">
+            <summary>
+            角色名
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveRoleInput.RoleCode">
+            <summary>
+            角色权限Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveRoleInput.Status">
+            <summary>
+            帐号状态（0正常 1停用）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveRoleInput.Description">
+             <summary>
+            描述
+             </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveRoleInput.OrderSort">
+             <summary>
+            排序
+             </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveUserInput.Id">
+            <summary>
+            用户id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveUserInput.AccountCode">
+            <summary>
+            账号Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveUserInput.Password">
+            <summary>
+            用户密码
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveUserInput.UserEmail">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveUserInput.UserName">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveUserInput.NickName">
+            <summary>
+            用户昵称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveUserInput.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveUserInput.PhoneNum">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveUserInput.DeptId">
+            <summary>
+            部门Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveUserInput.RoleIds">
+            <summary>
+            用户拥有的角色
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveUserInput.Description">
+             <summary>
+            描述/备注
+             </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SaveUserInput.Status">
+            <summary>
+            帐号状态（0正常 1停用）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysLoginLogPage.Id">
+            <summary>
+            登录日志id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysLoginLogPage.AccountCode">
+            <summary>
+            用户账号
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysLoginLogPage.Status">
+            <summary>
+            登录状态 0成功 1失败
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysLoginLogPage.Ipaddr">
+            <summary>
+            登录IP地址
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysLoginLogPage.LoginLocation">
+            <summary>
+            登录地点
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysLoginLogPage.Browser">
+            <summary>
+            浏览器类型
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysLoginLogPage.Os">
+            操作系统 
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysLoginLogPage.Msg">
+            <summary>
+            提示消息
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysLoginLogPage.CreateTime">
+            <summary>
+            登录日期
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.Id">
+            <summary>
+            操作日志Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.Title">
+            <summary>
+            操作模块
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.BusinessType">
+            <summary>
+            0=其它,1=新增,2=修改,3=删除,4=授权,5=导出,6=导入,7=强退,8=生成代码,9=清空数据
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.Method">
+            <summary>
+            请求方法
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.RequestMethod">
+            <summary>
+            请求方式
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.OperatorType">
+            <summary>
+            操作类别（0其它 1后台用户 2手机端用户）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.OperName">
+            <summary>
+            操作人员
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.DeptName">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.OperUrl">
+            <summary>
+            请求url
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.OperIp">
+            <summary>
+            操作地址
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.OperLocation">
+            <summary>
+            操作地点
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.OperParam">
+            <summary>
+            请求参数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.JsonResult">
+            <summary>
+            返回参数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.Status">
+            <summary>
+            操作状态（0正常 1异常）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.ErrorMsg">
+            <summary>
+            错误消息
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.Elapsed">
+            <summary>
+            操作用时
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.SysOperLogPage.CreateTime">
+            <summary>
+            登录日期
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserDto.Id">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserDto.AccountCode">
+            <summary>
+            账号Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserDto.UserEmail">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserDto.UserName">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserDto.NickName">
+            <summary>
+            用户昵称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserDto.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserDto.PhoneNum">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserDto.DeptId">
+            <summary>
+            部门Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserDto.Description">
+             <summary>
+            描述/备注
+             </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserDto.Status">
+            <summary>
+            帐号状态（0正常 1停用）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserDto.RoleIds">
+            <summary>
+            用户拥有的角色
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserPage.Id">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserPage.AccountCode">
+            <summary>
+            账号Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserPage.UserEmail">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserPage.UserName">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserPage.NickName">
+            <summary>
+            用户昵称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserPage.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserPage.PhoneNum">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserPage.Avatar">
+            <summary>
+            用户头像
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserPage.DeptId">
+            <summary>
+            部门Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserPage.Status">
+            <summary>
+            帐号状态（0正常 1停用）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserPage.CreateTime">
+            <summary>
+            注册时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserPage.DeptAncestorsFullName">
+            <summary>
+            部门全路径
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.Dto.System.UserPage.RoleNames">
+            <summary>
+            用户拥有的角色名称
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.ConstFileBusinesType.ARTICLE_CONTENTIMAGE">
+            <summary>
+            博文内容图
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.ConstFileBusinesType.ARTICLE_COVERIMAGE">
+            <summary>
+            博文预览图
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.ConstFileBusinesType.BLOG_LINK_BACKIMG">
+            <summary>
+            友情链接背景图
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.BlogArticleStatus.DRAFT">
+            <summary>
+            草稿
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.BlogArticleStatus.PUBLISHED">
+            <summary>
+            已发布
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Enums.EnumOwnerIdentityType">
+            <summary>
+            资源拥有者身份
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumOwnerIdentityType.USER">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumOwnerIdentityType.ROLE">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumSysDept.DISABLE">
+            <summary>
+            停用
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumSysDept.ENABLE">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Enums.EnumSysModuleResourceState">
+            <summary>
+            模块资源表-状态
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumSysModuleResourceState.DISABLE">
+            <summary>
+            停用
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumSysModuleResourceState.ENABLE">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Enums.EnumSysModuleResourceType">
+            <summary>
+            模块资资源-类型
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumSysModuleResourceType.MODULE">
+            <summary>
+            模块-类型
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumSysModuleResourceType.MENU">
+            <summary>
+            菜单-类型
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumSysModuleResourceType.BUTTON">
+            <summary>
+            按钮/Action权限-类型
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Enums.EnumSysRoleStatus">
+            <summary>
+            角色-状态
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumSysRoleStatus.DISABLE">
+            <summary>
+            停用
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumSysRoleStatus.ENABLE">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Enums.EnumGender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumGender.MALE">
+            <summary>
+            男
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumGender.FEMALE">
+            <summary>
+            女
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumGender.UNKNOWN">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.Enums.EnumSysUserStatus">
+            <summary>
+            用户-状态
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumSysUserStatus.DISABLE">
+            <summary>
+            停用
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.Enums.EnumSysUserStatus.ENABLE">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.System.SysDept">
+            <summary>
+            部门表
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysDept.ParentId">
+            <summary>
+            父部门ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysDept.CurrentLevelCode">
+            <summary>
+            当前代数Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysDept.AncestorsCode">
+            <summary>
+            祖级列表Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysDept.AncestorsFullName">
+            <summary>
+            祖级列表全路径名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysDept.DeptName">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysDept.SortNO">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysDept.Leader">
+            <summary>
+            负责人，多个逗号分割
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysDept.Phone">
+            <summary>
+            联系电话，多个逗号分割
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysDept.Email">
+            <summary>
+            邮箱，多个逗号分割
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysDept.Status">
+            <summary>
+            部门状态:0正常,1停用
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysDept.Level">
+            <summary>
+            层级
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.System.SysDept.Children">
+            <summary>
+            子部门
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.System.SysFileBusines">
+            <summary>
+            业务文件存储信息
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysFileBusines.Extension">
+            <summary>
+            扩展名
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysFileBusines.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysFileBusines.BucketName">
+            <summary>
+            存储桶
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysFileBusines.ObjectName">
+            <summary>
+            存储对象名称，MD5
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysFileBusines.Size">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysFileBusines.FileStatus">
+            <summary>
+            0：临时文件，1：业务数据已关联minio存储，（默认为0，提交业务数据更新为1，如果业务数据没有关联minio存储，定期会自动清除为0的数据文件）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysFileBusines.BusinessCode">
+            <summary>
+            业务编码
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysFileBusines.BusinessId">
+            <summary>
+            业务Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysFileBusines.AccountCode">
+            <summary>
+            上传文件用户Id
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.System.SysLoginLog">
+            <summary>
+            登录日志
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysLoginLog.AccountCode">
+            <summary>
+            用户账号
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysLoginLog.Status">
+            <summary>
+            登录状态 0成功 1失败
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysLoginLog.Ipaddr">
+            <summary>
+            登录IP地址
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysLoginLog.LoginLocation">
+            <summary>
+            登录地点
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysLoginLog.Browser">
+            <summary>
+            浏览器类型
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysLoginLog.Os">
+            操作系统 
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysLoginLog.Msg">
+            <summary>
+            提示消息
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.System.SysModuleResource">
+            <summary>
+            模块资源表
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysModuleResource.ResourceCode">
+            <summary>
+            资源Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysModuleResource.ResourceName">
+            <summary>
+            资源名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysModuleResource.ResourceIcon">
+            <summary>
+            资源图标
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysModuleResource.Path">
+            <summary>
+            资源路径/组件地址
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysModuleResource.PathName">
+            <summary>
+            资源名称/路由地址
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysModuleResource.NoCache">
+            <summary>
+            是否缓存页面
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysModuleResource.ResourceType">
+            <summary>
+            资源类型
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysModuleResource.ParentResourceID">
+            <summary>
+            资源的父id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysModuleResource.SortNO">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysModuleResource.Description">
+             <summary>
+            描述
+             </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysModuleResource.IsShow">
+            <summary>
+            当设置 false 的时候该路由不会在侧边栏出现
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysModuleResource.State">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysModuleResource.IsExternalLink">
+            <summary>
+            是否是外部链接
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Model.System.SysModuleResource.Children">
+            <summary>
+            子集合
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.Title">
+            <summary>
+            操作模块
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.BusinessType">
+            <summary>
+            0=其它,1=新增,2=修改,3=删除,4=授权,5=导出,6=导入,7=强退,8=生成代码,9=清空数据
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.Method">
+            <summary>
+            请求方法
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.RequestMethod">
+            <summary>
+            请求方式
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.OperatorType">
+            <summary>
+            操作类别（0其它 1后台用户 2手机端用户）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.OperName">
+            <summary>
+            操作人员
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.DeptName">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.OperUrl">
+            <summary>
+            请求url
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.OperIp">
+            <summary>
+            操作地址
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.OperLocation">
+            <summary>
+            操作地点
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.OperParam">
+            <summary>
+            请求参数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.JsonResult">
+            <summary>
+            返回参数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.Status">
+            <summary>
+            操作状态（0正常 1异常）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.ErrorMsg">
+            <summary>
+            错误消息
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.Elapsed">
+            <summary>
+            操作用时
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysOperLog.IsSaveData">
+            <summary>
+            是否已保存数据, 默认未保存
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysPrivilege.OwnerId">
+            <summary>
+            资源拥有者（角色/用户）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysPrivilege.OwnerType">
+            <summary>
+            资源类型
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysPrivilege.ResourceId">
+            <summary>
+            资源Id
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.System.SysRole">
+            <summary>
+            角色表
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysRole.RoleName">
+            <summary>
+            角色名
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysRole.RoleCode">
+            <summary>
+            角色权限Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysRole.Status">
+            <summary>
+            角色状态（0正常 1停用）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysRole.Description">
+             <summary>
+            描述
+             </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysRole.OrderSort">
+             <summary>
+            排序
+             </summary>
+        </member>
+        <member name="T:Dw.Framework.Model.System.SysUser">
+            <summary>
+            用户表
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUser.AccountCode">
+            <summary>
+            账号Code
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUser.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUser.UserEmail">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUser.UserName">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUser.NickName">
+            <summary>
+            用户昵称
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUser.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUser.PhoneNum">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUser.Avatar">
+            <summary>
+            用户头像
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUser.LoginIP">
+            <summary>
+            最后登录IP
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUser.LoginDate">
+            <summary>
+            最后登录时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUser.DeptId">
+            <summary>
+            部门Id
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUser.Status">
+            <summary>
+            帐号状态（0正常 1停用）
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUser.Description">
+             <summary>
+            描述/备注
+             </summary>
+        </member>
+        <member name="M:Dw.Framework.Model.System.SysUser.ValidateLoginUser(System.String,System.String)">
+            <summary>
+            校验登录用户账号密码
+            </summary>
+            <param name="accountCode"></param>
+            <param name="pwd"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Dw.Framework.Model.System.SysUserRole">
+            <summary>
+            用户角色关联表
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUserRole.UserId">
+            <summary>
+            用户表
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Model.System.SysUserRole.RoleId">
+            <summary>
+            角色表
+            </summary>
+        </member>
+    </members>
+</doc>

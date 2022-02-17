@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dw.Framework.Blog.Api</name>
+    </assembly>
+    <members>
+        <member name="P:Dw.Framework.Blog.Api.v1.Blog.ArticleController.accountCode">
+            <summary>
+            当前登录的账户
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Blog.Api.v1.Blog.ArticleController.GetArticleShowPage(System.String,System.Nullable{System.Guid},System.Nullable{System.Guid},System.Int32,System.Int32)">
+            <summary>
+            获取前端博客列表
+            </summary>
+            <param name="articleTitle"></param>
+            <param name="categoryId"></param>
+            <param name="tagId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Blog.Api.v1.Blog.ArticleController.GetArticleDetail(System.Guid)">
+            <summary>
+            获取前端博文详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:Dw.Framework.Infrastructure.CustomException"></exception>
+        </member>
+        <member name="M:Dw.Framework.Blog.Api.v1.Blog.ArticleController.GetArticleCommentList(System.Guid)">
+            <summary>
+            获取博文评论列表
+            </summary>
+            <param name="articleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Blog.Api.v1.Blog.ArticleController.SubComment(Dw.Framework.Model.Dto.Blog.SubCommentInput)">
+            <summary>
+            提交博文评论/回复
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Blog.Api.v1.Blog.ArticleController.Like(Dw.Framework.Model.Dto.Blog.CommentLike)">
+            <summary>
+            点赞
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Blog.Api.v1.Blog.ArticleController.Delete(System.Guid)">
+            <summary>
+            删除评论
+            </summary>
+            <param name="commentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Blog.Api.v1.Blog.ArticleController.GetCategoryTree">
+            <summary>
+            获取博文分类页面树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Blog.Api.v1.Blog.ArticleController.GetTags">
+            <summary>
+            获取所有标签
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Dw.Framework.Blog.Api.v1.Blog.ArticleController.GetArchives" -->
+        <member name="M:Dw.Framework.Blog.Api.Controllers.v1.ConfigController.GetHotTags">
+            <summary>
+            获取热门标签
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

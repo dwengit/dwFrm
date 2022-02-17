@@ -1,0 +1,18 @@
+const TokenKey = 'Token';
+
+export function getToken() {
+  return window.localStorage.getItem(TokenKey);
+}
+
+export function setToken(token) {
+  return window.localStorage.setItem(TokenKey, token);
+}
+
+export function removeToken() {
+  return window.localStorage.removeItem(TokenKey);
+}
+
+export function parseToken(token) {
+  let strings = token.split('.'); // 截取token，获取载体
+  return JSON.parse(decodeURIComponent(escape(window.atob(strings[1].replace(/-/g, '+').replace(/_/g, '/')))));
+}

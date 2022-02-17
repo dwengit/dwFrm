@@ -1,0 +1,534 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dw.Framework.Admin.Api</name>
+    </assembly>
+    <members>
+        <member name="F:Dw.Framework.Admin.Api.Auth._Blog.Article">
+            博文管理 *
+        </member>
+        <member name="F:Dw.Framework.Admin.Api.Auth._Blog.Tag">
+            博文标签 *
+        </member>
+        <member name="F:Dw.Framework.Admin.Api.Auth._Blog.Manage">
+            站点管理 *
+        </member>
+        <member name="F:Dw.Framework.Admin.Api.Auth._Blog.Category">
+            站点分类 *
+        </member>
+        <member name="F:Dw.Framework.Admin.Api.Auth._Blog.Comment">
+            博文评论 *
+        </member>
+        <member name="F:Dw.Framework.Admin.Api.Auth._Blog.Link">
+            友情链接 *
+        </member>
+        <member name="F:Dw.Framework.Admin.Api.Auth._Tools.Code">
+            代码生成 *
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.UserController.UserInfo">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.ArticleController.GetArticlePage(System.String,System.Nullable{System.Int32},System.Nullable{System.Guid},System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Int32)">
+            <summary>
+            获取-博文分页
+            </summary>
+            <param name="articleTitle"></param>
+            <param name="status"></param>
+            <param name="categoryId"></param>
+            <param name="tagIds"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.ArticleController.GetArticleInfo(System.Guid)">
+            <summary>
+            获取-博文详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.ArticleController.AddArticle(Dw.Framework.Model.Dto.Blog.SaveArticleInput)">
+            <summary>
+            新增-博文
+            </summary>
+            <param name="saveArticleInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.ArticleController.UpdateArticle(Dw.Framework.Model.Dto.Blog.SaveArticleInput)">
+            <summary>
+            修改-博文
+            </summary>
+            <param name="saveArticleInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.ArticleController.DeleteArticle(System.Guid)">
+            <summary>
+            删除-博文
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.CategoryController.GetCategoryTreeOption">
+            <summary>
+            获取博文下拉树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.CategoryController.GetCategoryPageTree(System.String)">
+            <summary>
+            获取博文分类页面树
+            </summary>
+            <param name="categoryTitle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.CategoryController.Add(Dw.Framework.Model.Dto.Blog.SaveCategoryInput)">
+            <summary>
+            新增博文分类
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.CategoryController.Update(Dw.Framework.Model.Dto.Blog.SaveCategoryInput)">
+            <summary>
+            更新博文分类
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.CategoryController.Delete(System.Guid)">
+            <summary>
+            删除博文分类
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.CommentController.GetArticleCommentList(System.Guid)">
+            <summary>
+            获取博文评论列表
+            </summary>
+            <param name="articleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.CommentController.SubComment(Dw.Framework.Model.Dto.Blog.SubCommentInput)">
+            <summary>
+            提交博文评论/回复
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.CommentController.Like(Dw.Framework.Model.Dto.Blog.CommentLike)">
+            <summary>
+            点赞
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.CommentController.Delete(System.Guid)">
+            <summary>
+            删除评论
+            </summary>
+            <param name="commentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.LinkController.GetLinkPage(System.String)">
+            <summary>
+            获取友情链接页面树
+            </summary>
+            <param name="linkTitle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.LinkController.Add(Dw.Framework.Model.Dto.Blog.SaveLinkInput)">
+            <summary>
+            新增友情链接
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.LinkController.Update(Dw.Framework.Model.Dto.Blog.SaveLinkInput)">
+            <summary>
+            更新友情链接
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.LinkController.Delete(System.Guid)">
+            <summary>
+            删除友情链接
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.TagController.GetTagPage(System.String)">
+            <summary>
+            获取博文标签页面树
+            </summary>
+            <param name="tagTitle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.TagController.Add(Dw.Framework.Model.Dto.Blog.SaveTagInput)">
+            <summary>
+            新增博文标签
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.TagController.Update(Dw.Framework.Model.Dto.Blog.SaveTagInput)">
+            <summary>
+            更新博文标签
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.TagController.Delete(System.Guid)">
+            <summary>
+            删除博文标签
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.WebSiteManageController.GetBlogWebSiteManageInfo">
+            <summary>
+            获取站点详情
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.Blog.WebSiteManageController.Update(Dw.Framework.Model.Dto.Blog.SaveWebSiteManageInput)">
+            <summary>
+            更新站点信息
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.CodeGeneratorController.GetAllDataBases(System.String,System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            获取所有的数据名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.CodeGeneratorController.GetAllTables(System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            获取所有表根据数据库名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.CodeGeneratorController.GetColumnInfo(System.String,System.String)">
+            <summary>
+            获取列信息
+            </summary>
+            <param name="dbName"></param>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.CodeGeneratorController.CodeGenerate(Dw.Framework.CodeGenerator.Model.GenerateInput)">
+            <summary>
+            生成打包代码
+            </summary>
+            <param name="input"></param>
+            <returns>返回打包后的路径</returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.MonitorController.GetServerInfo">
+            <summary>
+            获取服务器信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.DeptController.GetDeptPageTree(System.String,System.Nullable{System.Int32})">
+            <summary>
+            获取-部门页面树
+            </summary>
+            <param name="deptName">部门名称</param>
+            <param name="status">状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.DeptController.GetDeptInfo(System.Guid)">
+            <summary>
+            获取-部门详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.DeptController.AddDept(Dw.Framework.Model.Dto.System.SaveDeptInput)">
+            <summary>
+            新增-部门信息
+            </summary>
+            <param name="saveDeptInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.DeptController.UpdateDept(Dw.Framework.Model.Dto.System.SaveDeptInput)">
+            <summary>
+            更新-部门信息
+            </summary>
+            <param name="saveDeptInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.DeptController.DeleteDept(System.Guid)">
+            <summary>
+            删除部门
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.DeptController.LazyDeptTreeOptions(System.Guid)">
+            <summary>
+            懒加载-部门树
+            </summary>
+            <param name="parentid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.DeptController.AllDeptTreeOptions">
+            <summary>
+            全部加载-部门树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.LoginLogController.GetLoginLogPage(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Int32)">
+            <summary>
+            登录日志-分页
+            </summary>
+            <param name="accountCode"></param>
+            <param name="ipAdd"></param>
+            <param name="status"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.LoginLogController.ClearLoginLogAllData">
+            <summary>
+            清空所有登录日志数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.LoginLogController.DeleteLoginLog(System.String)">
+            <summary>
+            删除登录日志数据
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.MenuFunctionalController.GetAssignMenuFunctionalTree(Dw.Framework.Model.Enums.EnumOwnerIdentityType,System.Guid)">
+            <summary>
+            获取-分配功能模块权限树
+            </summary>
+            <param name="enumOwnerIdentityType"></param>
+            <param name="ownerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.MenuFunctionalController.GetMenuFunctionalList(System.String,System.Int32)">
+            <summary>
+            获取-菜单功能树列表
+            </summary>
+            <param name="resourceName"></param>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.MenuFunctionalController.GetMenuFunctional(System.Guid)">
+            <summary>
+            获取详情-模块/菜单/按钮
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.MenuFunctionalController.AllMenuFunctionalTreeOptions">
+            <summary>
+            获取全部-权限树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.MenuFunctionalController.AddMenuFunctional(Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput)">
+            <summary>
+            新增-功能模块
+            </summary>
+            <param name="saveInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.MenuFunctionalController.UpdateMenuFunctional(Dw.Framework.Model.Dto.System.SaveMenuFunctionalInput)">
+            <summary>
+            修改-功能模块
+            </summary>
+            <param name="saveInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.MenuFunctionalController.AssignMenuFunctional(Dw.Framework.Model.Dto.System.AssignMenuFunctionalInput)">
+            <summary>
+            分配权限
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.MenuFunctionalController.DeleteMenuFunctional(System.Guid)">
+            <summary>
+            删除-模块/菜单/按钮
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.MenuFunctionalController.SetMenuFunctional(Dw.Framework.Model.Dto.Shared.ChangeFieldValue)">
+            <summary>
+            更改状态-模块/菜单/按钮
+            </summary>
+            <param name="setMenu"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.OperLogController.GetOperLogPage(System.String,System.String,System.Int32,System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Int32)">
+            <summary>
+            操作日志-分页
+            </summary>
+            <param name="operName"></param>
+            <param name="operModule"></param>
+            <param name="businessType"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.OperLogController.ClearOperLogAllData">
+            <summary>
+            清空所有操作日志数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.OperLogController.DeleteOperLog(System.String)">
+            <summary>
+            删除操作日志数据
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.RoleController.GetRolePage(System.String,System.Nullable{System.Int32},System.Int32,System.Int32)">
+            <summary>
+            获取-角色分页
+            </summary>
+            <param name="roleName"></param>
+            <param name="status"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.RoleController.GetRoleInfo(System.Guid)">
+            <summary>
+            获取-角色详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.RoleController.GetRoleOptions">
+            <summary>
+            获取-角色下拉选项
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.RoleController.AddRole(Dw.Framework.Model.Dto.System.SaveRoleInput)">
+            <summary>
+            新增-角色
+            </summary>
+            <param name="saveRoleInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.RoleController.UpdateRole(Dw.Framework.Model.Dto.System.SaveRoleInput)">
+            <summary>
+            修改-角色
+            </summary>
+            <param name="saveRoleInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.RoleController.DeleteRole(System.Guid)">
+            <summary>
+            删除-角色
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.UserController.GetUserPage(System.String,System.Nullable{System.Int32},System.Nullable{System.Guid},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Int32)">
+            <summary>
+            获取-用户分页
+            </summary>
+            <param name="searchContent">用户名/昵称/电话号码</param>
+            <param name="status"></param>
+            <param name="deptId"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.UserController.GetUserInfo(System.Guid)">
+            <summary>
+            获取-用户详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.UserController.AddUser(Dw.Framework.Model.Dto.System.SaveUserInput)">
+            <summary>
+            新增-用户
+            </summary>
+            <param name="saveUserInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.UserController.UpdateUser(Dw.Framework.Model.Dto.System.SaveUserInput)">
+            <summary>
+            修改-用户
+            </summary>
+            <param name="saveUserInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.UserController.ChangeUserStatus(Dw.Framework.Model.Dto.System.ChangeUserValue)">
+            <summary>
+            更改-用户状态
+            </summary>
+            <param name="changeUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.UserController.ChangeUserPwd(Dw.Framework.Model.Dto.System.ChangeUserValue)">
+            <summary>
+            重置-用户密码
+            </summary>
+            <param name="changeUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.System.UserController.DeleteUser(System.Guid)">
+            <summary>
+            删除-用户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.UploadController.PostOnlyFile(Dw.Framework.Model.Dto.System.FileOnlyUploadInput)">
+            <summary>
+            简单上传
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.UploadController.PostFileAsync(Dw.Framework.Model.Dto.System.FileUploadInput)">
+            <summary>
+            上传业务文件
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.UploadController.RemoveUploadFile(System.Guid)">
+            <summary>
+            删除业务文件
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Admin.Api.Controllers.v1.UploadController.RemoveUploadOnlyFile(System.String)">
+            <summary>
+            直接删除对象存储对象
+            </summary>
+            <param name="objectName"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

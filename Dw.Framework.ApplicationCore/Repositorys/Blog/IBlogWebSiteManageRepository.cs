@@ -1,0 +1,14 @@
+﻿using Dw.Framework.Infrastructure.Database;
+using Dw.Framework.Model.Blog;
+using Dw.Framework.Model.System;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Dw.Framework.ApplicationCore.Repositorys.Blog
+{
+    public interface IBlogWebSiteManageRepository : IRepository<BlogWebSiteManage, Guid>
+    {
+
+    }
+}

@@ -1,0 +1,1720 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dw.Framework.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="M:Dw.Framework.Infrastructure.Caches.MemoryCacheHelper.SetCache(System.String,System.Object,System.Int32)">
+            <summary>
+            设置缓存
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="expMinute"></param>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.MemoryCacheHelper.GetCache(System.String)">
+            <summary>
+            获取缓存
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.MemoryCacheHelper.RemoveCache(System.String)">
+            <summary>
+            删除缓存
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Caches.RedisHelper.Init.RedisConfigInfo">
+            <summary>
+            redis配置文件信息
+            也可以放到配置文件去
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Caches.RedisHelper.Init.RedisConfigInfo.WriteServerList">
+            <summary>
+            可写的Redis链接地址
+            format:ip1,ip2
+            
+            默认6379端口
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Caches.RedisHelper.Init.RedisConfigInfo.ReadServerList">
+            <summary>
+            可读的Redis链接地址
+            format:ip1,ip2
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Caches.RedisHelper.Init.RedisConfigInfo.MaxWritePoolSize">
+            <summary>
+            最大写链接数
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Caches.RedisHelper.Init.RedisConfigInfo.MaxReadPoolSize">
+            <summary>
+            最大读链接数
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Caches.RedisHelper.Init.RedisConfigInfo.LocalCacheTime">
+            <summary>
+            本地缓存到期时间，单位:秒
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Caches.RedisHelper.Init.RedisConfigInfo.AutoStart">
+            <summary>
+            自动重启
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Caches.RedisHelper.Init.RedisConfigInfo.RecordeLog">
+            <summary>
+            是否记录日志,该设置仅用于排查redis运行时出现的问题,
+            如redis工作正常,请关闭该项
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Caches.RedisHelper.Init.RedisManager">
+            <summary>
+            Redis管理中心   创建Redis链接
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Caches.RedisHelper.Init.RedisManager.prcManager">
+            <summary>
+            Redis客户端池化管理
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Init.RedisManager.#cctor">
+            <summary>
+            静态构造方法，初始化链接池管理对象
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Init.RedisManager.CreateManager">
+            <summary>
+            创建链接池管理对象
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Init.RedisManager.GetClient">
+            <summary>
+            客户端缓存操作对象
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Caches.RedisHelper.Interface.RedisBase">
+            <summary>
+            RedisBase类，是redis操作的基类，继承自IDisposable接口，主要用于释放内存
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Interface.RedisBase.#ctor">
+            <summary>
+            构造时完成链接的打开
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Interface.RedisBase.FlushAll">
+            <summary>
+            清除全部数据 请小心
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Interface.RedisBase.Save">
+            <summary>
+            保存数据DB文件到硬盘
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Interface.RedisBase.SaveAsync">
+            <summary>
+            异步保存数据DB文件到硬盘
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService">
+            <summary>
+            Hash:类似dictionary，通过索引快速定位到指定元素的，耗时均等，跟string的区别在于不用反序列化，直接修改某个字段
+            string的话要么是 001:序列化整个实体
+                      要么是 001_name:  001_pwd: 多个key-value
+            Hash的话，一个hashid-{key:value;key:value;key:value;}
+            可以一次性查找实体，也可以单个，还可以单个修改
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.SetEntryInHash(System.String,System.String,System.String)">
+            <summary>
+            向hashid集合中添加key/value
+            </summary>       
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.SetEntryInHashIfNotExists(System.String,System.String,System.String)">
+            <summary>
+            如果hashid集合中存在key/value则不添加返回false，
+            如果不存在在添加key/value,返回true
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.StoreAsHash``1(``0)">
+            <summary>
+            存储对象T t到hash集合中
+            需要包含Id，然后用Id获取
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.GetFromHash``1(System.Object)">
+            <summary>
+            获取对象T中ID为id的数据。
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.GetAllEntriesFromHash(System.String)">
+            <summary>
+            获取所有hashid数据集的key/value数据集合
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.GetHashCount(System.String)">
+            <summary>
+            获取hashid数据集中的数据总数
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.GetHashKeys(System.String)">
+            <summary>
+            获取hashid数据集中所有key的集合
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.GetHashValues(System.String)">
+            <summary>
+            获取hashid数据集中的所有value集合
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.GetValueFromHash(System.String,System.String)">
+            <summary>
+            获取hashid数据集中，key的value数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.GetValuesFromHash(System.String,System.String[])">
+            <summary>
+            获取hashid数据集中，多个keys的value集合
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.RemoveEntryFromHash(System.String,System.String)">
+            <summary>
+            删除hashid数据集中的key数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.Remove(System.String)">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.HashContainsEntry(System.String,System.String)">
+            <summary>
+            判断hashid数据集中是否存在key的数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisHashService.IncrementValueInHash(System.String,System.String,System.Double)">
+            <summary>
+            给hashid数据集key的value加countby，返回相加后的数据
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService">
+            <summary>
+             Redis list的实现为一个双向链表，即可以支持反向查找和遍历，更方便操作，不过带来了部分额外的内存开销，
+             Redis内部的很多实现，包括发送缓冲队列等也都是用的这个数据结构。  
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.LPush(System.String,System.String)">
+            <summary>
+            从左侧向list中添加值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.LPush(System.String,System.String,System.DateTime)">
+            <summary>
+            从左侧向list中添加值，并设置过期时间
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.LPush(System.String,System.String,System.TimeSpan)">
+            <summary>
+            从左侧向list中添加值，设置过期时间
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.RPush(System.String,System.String)">
+            <summary>
+            从右侧向list中添加值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.RPush(System.String,System.String,System.DateTime)">
+            <summary>
+            从右侧向list中添加值，并设置过期时间
+            </summary>    
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.RPush(System.String,System.String,System.TimeSpan)">
+            <summary>
+            从右侧向list中添加值，并设置过期时间
+            </summary>        
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.Add(System.String,System.String)">
+            <summary>
+            添加key/value
+            </summary>     
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.Add(System.String,System.String,System.DateTime)">
+            <summary>
+            添加key/value ,并设置过期时间
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.Add(System.String,System.String,System.TimeSpan)">
+            <summary>
+            添加key/value。并添加过期时间
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.Add(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            为key添加多个值
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.Add(System.String,System.Collections.Generic.List{System.String},System.DateTime)">
+            <summary>
+            为key添加多个值，并设置过期时间
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.Add(System.String,System.Collections.Generic.List{System.String},System.TimeSpan)">
+            <summary>
+            为key添加多个值，并设置过期时间
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.Count(System.String)">
+            <summary>
+            获取list中key包含的数据数量
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.Get(System.String)">
+            <summary>
+            获取key包含的所有数据集合
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.Get(System.String,System.Int32,System.Int32)">
+            <summary>
+            获取key中下标为star到end的值集合 
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.BlockingPopItemFromList(System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+             阻塞命令：从list为key的尾部移除一个值，并返回移除的值，阻塞时间为sp
+            </summary>  
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.BlockingPopItemFromLists(System.String[],System.Nullable{System.TimeSpan})" -->
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.BlockingDequeueItemFromList(System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+             阻塞命令：从list中keys的尾部移除一个值，并返回移除的值，阻塞时间为sp
+            </summary>  
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.BlockingDequeueItemFromLists(System.String[],System.Nullable{System.TimeSpan})" -->
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.BlockingPopAndPushItemBetweenLists(System.String,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            阻塞命令：从list中一个fromkey的尾部移除一个值，添加到另外一个tokey的头部，并返回移除的值，阻塞时间为sp
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.PopItemFromList(System.String)">
+            <summary>
+            从尾部移除数据，返回移除的数据
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.DequeueItemFromList(System.String)">
+            <summary>
+            从尾部移除数据，返回移除的数据
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.RemoveItemFromList(System.String,System.String)">
+            <summary>
+            移除list中，key/value,与参数相同的值，并返回移除的数量
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.RemoveEndFromList(System.String)">
+            <summary>
+            从list的尾部移除一个数据，返回移除的数据
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.RemoveStartFromList(System.String)">
+            <summary>
+            从list的头部移除一个数据，返回移除的值
+            </summary>  
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisListService.PopAndPushItemBetweenLists(System.String,System.String)">
+            <summary>
+            从一个list的尾部移除一个数据，添加到另外一个list的头部，并返回移动的值
+            </summary>  
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService">
+            <summary>
+            Set：用哈希表来保持字符串的唯一性，没有先后顺序，存储一些集合性的数据
+            1.共同好友、二度好友
+            2.利用唯一性，可以统计访问网站的所有独立 IP
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.Add(System.String,System.String)">
+            <summary>
+            key集合中添加value值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.Add(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            key集合中添加list集合
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.GetRandomItemFromSet(System.String)">
+            <summary>
+            随机获取key集合中的一个值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.GetCount(System.String)">
+            <summary>
+            获取key集合值的数量
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.GetAllItemsFromSet(System.String)">
+            <summary>
+            获取所有key集合的值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.GetAndSetValue(System.String,System.String)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.RandomRemoveItemFromSet(System.String)">
+            <summary>
+            随机删除key集合中的一个值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.RemoveItemFromSet(System.String,System.String)">
+            <summary>
+            删除key集合中的value
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.MoveBetweenSets(System.String,System.String,System.String)">
+            <summary>
+            从fromkey集合中移除值为value的值，并把value添加到tokey集合中
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.GetUnionFromSets(System.String[])">
+            <summary>
+            返回keys多个集合中的并集，返还hashset
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.GetIntersectFromSets(System.String[])">
+            <summary>
+            返回keys多个集合中的交集，返还hashset
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.GetDifferencesFromSet(System.String,System.String[])">
+            <summary>
+            返回keys多个集合中的差集，返还hashset
+            </summary>
+            <param name="fromKey">原集合</param>
+            <param name="keys">其他集合</param>
+            <returns>出现在原集合，但不包含在其他集合</returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.StoreUnionFromSets(System.String,System.String[])">
+            <summary>
+            keys多个集合中的并集，放入newkey集合中
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisSetService.StoreDifferencesFromSet(System.String,System.String,System.String[])">
+            <summary>
+            把fromkey集合中的数据与keys集合中的数据对比，fromkey集合中不存在keys集合中，则把这些不存在的数据放入newkey集合中
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService">
+            <summary>
+            key-value 键值对:value可以是序列化的数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.Set``1(System.String,``0)">
+            <summary>
+            设置key的value
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.Set``1(System.String,``0,System.DateTime)">
+            <summary>
+            设置key的value并设置过期时间
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.Set``1(System.String,``0,System.TimeSpan)">
+            <summary>
+            设置key的value并设置过期时间
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.Set(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            设置多个key/value  可以一次保存多个key value ---多个key value 不是分多次，是一个独立的命令；
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.Append(System.String,System.String)">
+            <summary>
+            在原有key的value值之后追加value,没有就新增一项
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.Get(System.String)">
+            <summary>
+            获取key的value值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.Get(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取多个key的value值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.Get``1(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取多个key的value值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.GetAndSetValue(System.String,System.String)">
+            <summary>
+            获取旧值赋上新值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.GetLength(System.String)">
+            <summary>
+            获取值的长度
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.Incr(System.String)">
+            <summary>
+            自增1，返回自增后的值   保存的是10   调用后，+1   返回11
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.IncrBy(System.String,System.Int32)">
+            <summary>
+            自增count，返回自增后的值   自定义自增的步长值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.Decr(System.String)">
+            <summary>
+            自减1，返回自减后的值，Redis操作是单线程操作；不会出现超卖的情况
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.DecrBy(System.String,System.Int32)">
+            <summary>
+            自减count ，返回自减后的值
+            </summary>
+            <param name="key"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisStringService.Remove(System.String)">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService">
+            <summary>
+            Sorted Sets是将 Set 中的元素增加了一个权重参数 score，使得集合中的元素能够按 score 进行有序排列
+            1.带有权重的元素，比如一个游戏的用户得分排行榜
+            2.比较复杂的数据结构，一般用到的场景不算太多
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.Add(System.String,System.String)">
+            <summary>
+            添加key/value，默认分数是从1.多*10的9次方以此递增的,自带自增效果
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.AddItemToSortedSet(System.String,System.String,System.Double)">
+            <summary>
+            添加key/value,并设置value的分数
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.AddRangeToSortedSet(System.String,System.Collections.Generic.List{System.String},System.Double)">
+            <summary>
+            为key添加values集合，values集合中每个value的分数设置为score
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.AddRangeToSortedSet(System.String,System.Collections.Generic.List{System.String},System.Int64)">
+            <summary>
+            为key添加values集合，values集合中每个value的分数设置为score
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetAll(System.String)">
+            <summary>
+            获取key的所有集合
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetAllDesc(System.String)">
+            <summary>
+            获取key的所有集合，倒叙输出
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetAllWithScoresFromSortedSet(System.String)">
+            <summary>
+            获取集合，带分数
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetItemIndexInSortedSet(System.String,System.String)">
+            <summary>
+            获取key为value的下标值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetItemIndexInSortedSetDesc(System.String,System.String)">
+            <summary>
+            倒叙排列获取key为value的下标值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetItemScoreInSortedSet(System.String,System.String)">
+            <summary>
+            获取key为value的分数
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetSortedSetCount(System.String)">
+            <summary>
+            获取key所有集合的数据总数
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetSortedSetCount(System.String,System.Double,System.Double)">
+            <summary>
+            key集合数据从分数为fromscore到分数为toscore的数据总数
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetRangeFromSortedSetByHighestScore(System.String,System.Double,System.Double)">
+            <summary>
+            获取key集合从高分到低分排序数据，分数从fromscore到分数为toscore的数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetRangeFromSortedSetByLowestScore(System.String,System.Double,System.Double)">
+            <summary>
+            获取key集合从低分到高分排序数据，分数从fromscore到分数为toscore的数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetRangeWithScoresFromSortedSetByHighestScore(System.String,System.Double,System.Double)">
+            <summary>
+            获取key集合从高分到低分排序数据，分数从fromscore到分数为toscore的数据，带分数
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetRangeWithScoresFromSortedSetByLowestScore(System.String,System.Double,System.Double)">
+            <summary>
+             获取key集合从低分到高分排序数据，分数从fromscore到分数为toscore的数据，带分数
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetRangeFromSortedSet(System.String,System.Int32,System.Int32)">
+            <summary>
+             获取key集合数据，下标从fromRank到分数为toRank的数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetRangeFromSortedSetDesc(System.String,System.Int32,System.Int32)">
+            <summary>
+            获取key集合倒叙排列数据，下标从fromRank到分数为toRank的数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetRangeWithScoresFromSortedSet(System.String,System.Int32,System.Int32)">
+            <summary>
+            获取key集合数据，下标从fromRank到分数为toRank的数据，带分数
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.GetRangeWithScoresFromSortedSetDesc(System.String,System.Int32,System.Int32)">
+            <summary>
+             获取key集合倒叙排列数据，下标从fromRank到分数为toRank的数据，带分数
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.RemoveItemFromSortedSet(System.String,System.String)">
+            <summary>
+            删除key为value的数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.RemoveRangeFromSortedSet(System.String,System.Int32,System.Int32)">
+            <summary>
+            删除下标从minRank到maxRank的key集合数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.RemoveRangeFromSortedSetByScore(System.String,System.Double,System.Double)">
+            <summary>
+            删除分数从fromscore到toscore的key集合数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.PopItemWithHighestScoreFromSortedSet(System.String)">
+            <summary>
+            删除key集合中分数最大的数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.PopItemWithLowestScoreFromSortedSet(System.String)">
+            <summary>
+            删除key集合中分数最小的数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.SortedSetContainsItem(System.String,System.String)">
+            <summary>
+            判断key集合中是否存在value数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.IncrementItemInSortedSet(System.String,System.String,System.Double)">
+            <summary>
+            为key集合值为value的数据，分数加scoreby，返回相加后的分数
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.StoreIntersectFromSortedSets(System.String,System.String[])">
+            <summary>
+            获取keys多个集合的交集，并把交集添加的newkey集合中，返回交集数据的总数
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Caches.RedisHelper.Service.RedisZSetService.StoreUnionFromSortedSets(System.String,System.String[])">
+            <summary>
+            获取keys多个集合的并集，并把并集数据添加到newkey集合中，返回并集数据的总数
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Database.PagedListExtensions">
+            <summary>
+            分页扩展类
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.PagedListExtensions.ToPagedListAsync``1(System.Linq.IQueryable{``0},System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            PagedList
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <param name="pageIndex">1为起始页</param>
+            <param name="pageSize"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.TypeExtensions.GetCurrentPathAssembly(System.AppDomain)">
+            <summary>
+            获取当前应用程序运行下的dll
+            </summary>
+            <param name="domain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.BaseDbContext.SetTrackInfo">
+            <summary>
+            SaveChanges时，设置已实现的实体值
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.Impl.DapperAdapter.PagingUtil.SplitSql(System.String)">
+            <summary>
+            分割SQL
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Database.Impl.DapperAdapter.PartedSql">
+            <summary>
+            sql info
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Database.Impl.DapperAdapter.PartedSql.Select">
+            <summary>
+            select eg：distinct Id, name
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Database.Impl.DapperAdapter.PartedSql.Body">
+            <summary>
+            body eg：tabName where Id = 123
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Database.Impl.DapperAdapter.PartedSql.OrderBy">
+            <summary>
+            order by eg: Id Asc
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.Entity`1.Id">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.Entity`1.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.Entity`1.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.Entity`1.IsDelete">
+            <summary>
+            是否已删除
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.Entity`1.DeleteTime">
+            <summary>
+            删除时间
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Database.Page`1">
+            <summary>
+            分页列表
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.Page`1.PageIndex">
+            <summary>
+            当前页码
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.Page`1.PageSize">
+            <summary>
+            每页记录数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.Page`1.Total">
+            <summary>
+            总记录数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.Page`1.PageTotal">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.Page`1.Items">
+            <summary>
+            分页数据
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IRepository`2.Query">
+            <summary>
+            查询
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IRepository`2.QueryNoTracking">
+            <summary>
+            查询不跟踪实体变化
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IRepository`2.Get(`1)">
+            <summary>
+            根据主键获取
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IRepository`2.GetAll">
+            <summary>
+            获取所有,默认过滤IsDelete=1的
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IRepository`2.FirstOrDefault">
+            <summary>
+            获取第一个
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IRepository`2.Insert(`0)">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IRepository`2.Insert(System.Collections.Generic.List{`0})">
+            <summary>
+            批量新增
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IRepository`2.Update(`0)">
+            <summary>
+            更新
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IRepository`2.Delete(`0)">
+            <summary>
+            逻辑删除，标记IsDelete = 1
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IRepository`2.HardDelete(`0)">
+            <summary>
+            物理删除，从数据库中移除
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IRepository`2.Any(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            聚合操作
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.ITrack.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.ITrack.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.ITrack.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.ITrack.DeleteTime">
+            <summary>
+            删除时间
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Database.ICreateTimeTrack.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IUnitOfWork.QueryAsync``1(System.String,System.Object,Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction)">
+            <summary>
+            查询
+            用法:await _unitOfWork.QueryAsync`Demo`("select id,title from post where id = @id", new { id = 1 });
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="sql">sql语句</param>
+            <param name="param">参数</param>
+            <param name="trans"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IUnitOfWork.ExecuteAsync(System.String,System.Object,Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction)">
+            <summary>
+            ExecuteAsync
+            用法:await _unitOfWork.ExecuteAsync("update post set title =@title where id =@id", new { title = "", id=1 });
+            </summary>
+            <param name="sql">sql语句</param>
+            <param name="param">参数</param>
+            <param name="trans"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IUnitOfWork.QueryPagedAsync``1(System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            分页查询 
+            用法：await _unitOfWork.QueryPagedAsync(1,10,"select * from post where isDelete = @isDelete order by id desc", new { isDelete = 1 });
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="pageIndex">当前页码,从1开始</param>
+            <param name="pageSize">每页记录数,最大5000</param>
+            <param name="sql">sql语句</param>
+            <param name="sqlArgs">sql参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IUnitOfWork.BeginTransaction">
+            <summary>
+            开启事务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IUnitOfWork.CommitTransaction">
+            <summary>
+            提交事务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Database.IUnitOfWork.GetConnection">
+            <summary>
+            获取DbConnection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToLong(System.Object)">
+            <summary>
+            将object转换为long，若转换失败，则返回0。不抛出异常。  
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToLong(System.String,System.Int64)">
+            <summary>
+            将object转换为long，若转换失败，则返回指定值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToInt(System.Object)">
+            <summary>
+            将object转换为int，若转换失败，则返回0。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToInt(System.Object,System.Int32)">
+            <summary>
+            将object转换为int，若转换失败，则返回指定值。不抛出异常。 
+            null返回默认值
+            </summary>
+            <param name="str"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToShort(System.Object)">
+            <summary>
+            将object转换为short，若转换失败，则返回0。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToShort(System.Object,System.Int16)">
+            <summary>
+            将object转换为short，若转换失败，则返回指定值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToDecimal(System.Object,System.Decimal)">
+            <summary>
+            将object转换为demical，若转换失败，则返回指定值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToDecimal(System.Object)">
+            <summary>
+            将object转换为demical，若转换失败，则返回0。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToBool(System.Object)">
+            <summary>
+            将object转换为bool，若转换失败，则返回false。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToBool(System.Object,System.Boolean)">
+            <summary>
+            将object转换为bool，若转换失败，则返回指定值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToFloat(System.Object)">
+            <summary>
+            将object转换为float，若转换失败，则返回0。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToFloat(System.Object,System.Single)">
+            <summary>
+            将object转换为float，若转换失败，则返回指定值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToGuid(System.String)">
+            <summary>
+            将string转换为Guid，若转换失败，则返回Guid.Empty。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToDateTime(System.String)">
+            <summary>
+            将string转换为DateTime，若转换失败，则返回日期最小值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToDateTime(System.String,System.Nullable{System.DateTime})">
+            <summary>
+            将string转换为DateTime，若转换失败，则返回默认值。  
+            </summary>
+            <param name="str"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToString(System.Object)">
+            <summary>
+            将object转换为string，若转换失败，则返回""。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToDouble(System.Object)">
+            <summary>
+            将object转换为double，若转换失败，则返回0。不抛出异常。  
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.ParseToDouble(System.Object,System.Double)">
+            <summary>
+            将object转换为double，若转换失败，则返回指定值。不抛出异常。  
+            </summary>
+            <param name="str"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ConvertExtensions.CastSuper``1(System.Collections.IEnumerable)">
+            <summary>
+            强制转换类型
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.StringExtension.If(System.String,System.Boolean)">
+            <summary>
+            SQL条件拼接
+            </summary>
+            <param name="str"></param>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.StringExtension.IfNotEmpty(System.String)">
+            <summary>
+            判断是否为空
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.StringExtension.ReplaceFirst(System.String,System.String,System.String)">
+            <summary>
+            注意：如果替换的旧值中有特殊符号，替换将会失败，解决办法 例如特殊符号是“(”：  要在调用本方法前加oldValue=oldValue.Replace("(","//(");
+            </summary>
+            <param name="input"></param>
+            <param name="oldValue"></param>
+            <param name="newValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.StringExtension.ToSmallCamelCase(System.String)">
+            <summary>
+            骆驼峰转下划线
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.StringExtension.UnderScoreToCamelCase(System.String)">
+            <summary>
+            下划线命名转驼峰命名
+            </summary>
+            <param name="underscore"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.StringExtension.FirstUpperCase(System.String)">
+            <summary>
+            首字母转大写
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.StringExtension.FirstLowerCase(System.String)">
+            <summary>
+            首字母转小写
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.StringExtension.SubstringBetween(System.String,System.String,System.String)">
+            <summary>
+            截取指定字符串中间内容
+            </summary>
+            <param name="sourse"></param>
+            <param name="startstr"></param>
+            <param name="endstr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Logger.Info(System.String,System.Exception)">
+            <summary>
+            普通日志
+            </summary>
+            <param name="throwMsg"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Logger.Info(System.String,System.String)">
+            <summary>
+            普通日志
+            </summary>
+            <param name="infoTitle"></param>
+            <param name="infoMsg"></param>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Logger.Info(System.String,System.Object)">
+            <summary>
+            普通日志
+            </summary>
+            <param name="infoTitle"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Logger.Warn(System.String,System.Exception)">
+            <summary>
+            警告日志
+            </summary>
+            <param name="throwMsg"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Logger.Error(System.String,System.Exception)">
+            <summary>
+            错误日志
+            </summary>
+            <param name="throwMsg"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI">
+            <summary>
+            minio的api，用于实现对minio的操作
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.GetInstance">
+            <summary>
+            定义公有方法提供一个全局访问点,同时你也可以定义公有属性来提供全局访问点
+            设置Global.host  Global.accessKey  Global.secretKey
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.host">
+            集群节点中任何一个节点的ip即可，因为minio是无中心的
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.accessKey">
+            等同于用户名，每个用户需要创建accessKey与secretKey才可以登陆系统
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.secretKey">
+            等同于密码，每个用户需要创建accessKey与secretKey才可以登陆系统
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.#ctor">
+            构造方法
+            // 定义私有构造函数，使外界不能创建该类实例
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.Init">
+            重新初始化连接，每次调用时都会新建一个实例
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.CreateBucketAsync(System.String)">
+             创建桶
+            
+             @param bucketName 桶名称
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.GetAllBucketsAsync">
+             获取全部桶
+            
+             @return 返回minio集群中一共有哪些桶
+             https://docs.minio.io/cn/java-client-api-reference.html#listBuckets
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.UploadByStreamAsync(System.String,System.String,System.IO.Stream)">
+             上传文件,通过流的方式，文件类型为流
+             如果大于5MB，将自动分片后通过多会话上传
+             可以直接获取request请求中的流或者数据库中的流进行操作,性能更高
+            
+             @param bucketName 桶名称
+             @param objectName 文件名称
+             @param stream     文件流
+             @throws Exception https://docs.minio.io/cn/java-client-api-reference.html#putObject
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.UploadByStreamAsync(System.String,System.String,System.IO.Stream,System.Int64,System.String)">
+             上传文件,通过流的方式，指定流大小与文件类型
+             如果大于5MB，将自动分片后通过多会话上传
+             可以直接获取request请求中的流或者数据库中的流进行操作,性能更高
+            
+             @param bucketName  桶名称
+             @param objectName  文件名称
+             @param stream      文件流
+             @param size        大小
+             @param contextType 类型
+             @throws Exception https://docs.minio.io/cn/java-client-api-reference.html#putObject
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.UploadByFileAsync(System.String,System.String,System.String)">
+             上传文件,通过文件的方式，指定本地文件的路径
+             如果对象大于5MB，将自动分片后通过多会话上传
+             会直接读取文件的信息
+            
+             @param bucketName 桶名称
+             @param objectName 文件名称
+             @param filePath   文件路径
+             @throws Exception https://docs.minio.io/cn/java-client-api-reference.html#putObject
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.GetObjectInfoAsync(System.String,System.String)">
+             获取文件信息
+            
+             @param bucketName 桶名称
+             @param objectName 文件名称
+             @return 包含了该文件的基本信息
+             @throws Exception https://docs.minio.io/cn/java-client-api-reference.html#statObject
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.removeObjectAsync(System.String,System.String)">
+             删除文件
+            
+             @param bucketName 桶名称
+             @param objectName 文件名称
+             @throws Exception https://docs.minio.io/cn/java-client-api-reference.html#removeObject
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.DownloadToFileAsync(System.String,System.String,System.String)">
+             从集群中下载文件到本地
+             如果要实现下载功能，本方法性能略低，因为要多写入一次服务器文件系统，推荐使用getStream()以流的方式直接输出
+            
+             @param bucketName 桶名称
+             @param objectName 文件名称
+             @param filePath   文件路径
+             @throws Exception https://docs.minio.io/cn/java-client-api-reference.html#putObject
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.getObjectAsync(System.String,System.String)">
+             从集群中下载文件到本地
+             如果要实现下载功能，本方法性能略低，因为要多写入一次服务器文件系统，推荐使用getStream()以流的方式直接输出
+            
+             @param bucketName 桶名称
+             @param objectName 文件名称
+             @throws Exception https://docs.minio.io/cn/java-client-api-reference.html#putObject
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.GetStreamAsync(System.String,System.String)">
+             获取文件的流
+             推荐实现下载功能时通过此方法直接获取流进行输出，提升性能
+            
+             @param bucketName 桶名称
+             @param objectName 文件名称
+             @return 对象的文件流，可以用于文件保存，或者输出到服务端
+             @throws Exception https://docs.minio.io/cn/java-client-api-reference.html#putObject
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.getStreamAsync(System.String,System.String,System.Int64,System.Int64)">
+             获取文件的流,支持断点下载，如指定下载1024-2048范围内的数据
+             推荐实现下载功能时通过此方法直接获取流进行输出，提升性能
+             通过偏移量和长度来实现断点下载
+            
+             @param bucketName 桶名称
+             @param objectName 文件名称
+             @param offset     偏移量
+             @param length     下载总长度
+             @return 对象的文件流，可以用于文件保存，或者输出到服务端
+             @throws Exception https://docs.minio.io/cn/java-client-api-reference.html#putObject
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.Find(System.String,System.String)" -->
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.CopyAsync(System.String,System.String,System.String,System.String)">
+             复制,并重命名
+            
+             @param sourceBuckName   源桶
+             @param sourceObjectName 源文件
+             @param destBuckName     目标桶
+             @param destObjectName   目标文件
+             @throws Exception
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.CopyAsync(System.String,System.String,System.String)">
+             复制
+            
+             @param sourceBuckName   源桶
+             @param sourceObjectName 源文件
+             @param destBuckName     目标桶
+             @throws Exception
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.GetObjectURLAsync(System.String,System.String)">
+             获取文件外链
+            
+             @param bucketName bucket名称
+             @param objectName 文件名称
+             @return url
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.cutAsync(System.String,System.String,System.String,System.String)">
+             剪切
+             先复制，后删除
+            
+             @param sourceBuckName   源桶
+             @param sourceObjectName 源文件
+             @param destBuckName     目标桶
+             @param destObjectName   目标文件
+             @throws Exception
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.deleteAsync(System.String,System.String)">
+             删除
+            
+             @param buckName   桶
+             @param objectName 文件
+             @throws Exception
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.ObjectStorage.MinioAPI.rollbackMultUpload(System.String,System.String,System.String)">
+             放弃分段上传文件
+            
+             @param bucketName 桶名称
+             @param objectName 文件名称
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Shared.Enums.BusinessType">
+            业务操作类型
+            0=其它,1=新增,2=修改,3=删除,4=授权,5=导出,6=导入,7=强退,8=生成代码,9=清空数据
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Shared.Enums.BusinessType.OTHER">
+            <summary>
+            其它
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Shared.Enums.BusinessType.INSERT">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Shared.Enums.BusinessType.UPDATE">
+            <summary>
+            修改
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Shared.Enums.BusinessType.DELETE">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Shared.Enums.BusinessType.GRANT">
+            <summary>
+            授权
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Shared.Enums.BusinessType.EXPORT">
+            <summary>
+            导出
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Shared.Enums.BusinessType.IMPORT">
+            <summary>
+            导入
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Shared.Enums.BusinessType.FORCE">
+            <summary>
+            强退
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Shared.Enums.BusinessType.GENCODE">
+            <summary>
+            生成代码
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.Shared.Enums.BusinessType.CLEAN">
+            <summary>
+            清空数据
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.ResultCodeEnums.FAIL">
+            <summary>
+            操作失败
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.Infrastructure.ResultCodeEnums.Ok">
+            <summary>
+            操作/访问-成功
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Respbase.#ctor(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Respbase.Msg">
+            <summary>
+            返回提示信息
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Respbase.StatusCode">
+            <summary>
+            返回的状态
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Respbase.Success">
+            <summary>
+            操作是否成功
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Respbase`1.Data">
+            <summary>
+            响应的数据实体
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Utility.Appsettings">
+            <summary>
+            appsettings.json操作类
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.Appsettings.App(System.String[])">
+            <summary>
+            封装要操作的字符
+            </summary>
+            <param name="sections">节点配置</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.Appsettings.App``1(System.String[])">
+            <summary>
+            递归获取配置信息数组
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sections"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.ComputerHelper.GetComputerInfo">
+            <summary>
+            内存使用情况
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.ComputerHelper.GetDiskInfos">
+            <summary>
+            获取内存大小
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.ComputerHelper.GetRunTime">
+            <summary>
+            获取系统运行时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Utility.MemoryMetrics">
+            <summary>
+            内存信息
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Utility.MemoryMetrics.CPURate">
+            <summary>
+            CPU使用率%
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Utility.MemoryMetrics.TotalRAM">
+            <summary>
+            总内存 GB
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Utility.MemoryMetrics.RAMRate">
+            <summary>
+            内存使用率 %
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Utility.MemoryMetrics.FreeRam">
+            <summary>
+            空闲内存
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Utility.DiskInfo.DiskName">
+            <summary>
+            磁盘名
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Utility.DiskInfo.Used">
+            <summary>
+            已使用
+            </summary>
+        </member>
+        <member name="P:Dw.Framework.Infrastructure.Utility.DiskInfo.AvailableFreeSpace">
+            <summary>
+            可使用
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.MemoryMetricsClient.GetWindowsMetrics">
+            <summary>
+            windows系统获取内存信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.MemoryMetricsClient.GetUnixMetrics">
+            <summary>
+            Unix系统获取
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.DateTimeHelper.GetBeginTime(System.Nullable{System.DateTime},System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.DateTimeHelper.FormatTime(System.Int64)">
+            <summary>
+            毫秒转天时分秒
+            </summary>
+            <param name="ms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.DateTimeHelper.GetUnixTimeStamp(System.DateTime)">
+            <summary>
+            获取unix时间戳
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Utility.Encrypt">
+            <summary>
+            加密解密实用类。
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.Encrypt.Encode(System.String)">
+            <summary>
+            加密。
+            </summary>
+            <param name="m_Need_Encode_String"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.Encrypt.Decode(System.String)">
+            <summary>
+            解密。
+            </summary>
+            <param name="m_Need_Encode_String"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.Encrypt.MD5Encrypt(System.String,System.Boolean)">
+            <summary>
+            32位MD5加密
+            </summary>
+            <param name="strText">要加密字符串</param>
+            <param name="IsLower">是否以小写方式返回，默认小写</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.ShellHelper.Bash(System.String)">
+            <summary>
+            linux 系统命令
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.ShellHelper.Cmd(System.String,System.String)">
+            <summary>
+            windows系统命令
+            </summary>
+            <param name="fileName"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.ValidateCodeHelper.CreateVaildateCode(System.Int32)">
+            <summary>
+            生成随机验证码Code
+            </summary>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.ValidateCodeHelper.CreateValidateImgByCode(System.String)">
+            <summary>
+            根据验证码Code绘制图片
+            </summary>
+            <param name="validateCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Utility.WebApiUtility.HttpContextExtension">
+            <summary>
+            HttpContext扩展类
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.WebApiUtility.HttpContextExtension.IsAjaxRequest(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            是否是ajax请求
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.WebApiUtility.HttpContextExtension.GetClientUserIp(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            获取客户端IP
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.WebApiUtility.HttpContextExtension.GetClaims(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            ClaimsIdentity
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Utility.WebApiUtility.HttpContextExtension.GetToken(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            获取请求令牌
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Dw.Framework.Infrastructure.Helper.UtilConvert">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ObjToInt(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ObjToInt(System.Object,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <param name="errorValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ObjToMoney(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ObjToMoney(System.Object,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <param name="errorValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ObjToString(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ObjToString(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <param name="errorValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ObjToDecimal(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ObjToDecimal(System.Object,System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <param name="errorValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ObjToDate(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ObjToDate(System.Object,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <param name="errorValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ObjToBool(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ObjToJsonCamel(System.Object)">
+            <summary>
+            转换为json小驼峰
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ObjToJson(System.Object)">
+            <summary>
+            转换为json
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.StrJsonToObj``1(System.String)">
+            <summary>
+            json转为对象
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.ListStrJsonToObj``1(System.Collections.Generic.List{System.String})">
+            <summary>
+            json转为对象
+            </summary>
+            <param name="thisValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dw.Framework.Infrastructure.Helper.UtilConvert.GetDescription(System.Enum)">
+            <summary>
+            获取枚举的描述信息
+            </summary>
+        </member>
+        <member name="T:Dw.Framework.RoutePrefix">
+            <summary>
+            路由变量前缀配置
+            </summary>
+        </member>
+        <member name="F:Dw.Framework.RoutePrefix.Name">
+            <summary>
+            前缀名
+            如果不需要，尽量留空，不要修改
+            除非一定要在所有的 api 前统一加上特定前缀
+            </summary>
+        </member>
+    </members>
+</doc>
